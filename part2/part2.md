@@ -6,41 +6,59 @@ In order to figure out the correct interfaces needed for DSW-A1, use show cdp ne
 
 ![getcontent](https://github.com/GSecAwareness/LAN/blob/main/part2/1%20sh%20cdp%20neighbors.PNG)
 
-Create channel-group 1 and use desirable mode for pagp. Use channel-group 1 because the instructions state PortChannel1 and 1 is the group number. Desirable mode is needed because the instructions state that both switches should actively try to form an EtherChannel. 
-Insert 2 channel-group desirable
-Input the same commands into DSW-A2 and confirm the connection with: 
-do show etherchannel summary
+Create channel-group 1 and use desirable mode for pagp. Use channel-group 1 because the instructions state PortChannel1 and 1 is the group number. Desirable mode is needed because the instructions state that both switches should actively try to form an EtherChannel.
+
+![getcontent](https://github.com/GSecAwareness/LAN/blob/main/part2/2%20channel-group%201%20desirable.PNG)
+
+Input the same commands into DSW-A2 and confirm the connection with:   
+
+<b>do show etherchannel summary</b>  
+
 If you look under the Port-Channel header, it reads Po1(SU): Port Channel 1 with the flags S = Layer 2 and U = in Use. This means we have a successful connection. 
-Insert 3 etherchannel summary pic
-3)	In Office B, configure a Layer-2 EtherChannel named PortChannel1 between DSW-B1 and DSW-B2 using an open standard protocol. Both switches should actively try to form an EtherChannel.
-Next, create the etherchannel between DSW-B1 and DSW-B2, according to the directions. Be mindful that it states to use an open standard protocol, specifically LACP. We will use active mode so both switches actively try to form the EtherChannel. Once again, use “do show cdp neighbors” to see the neighboring devices and their interfaces. 
-Insert  4 cdp neighbors dsw-b1 pic
+
+![getcontent](https://github.com/GSecAwareness/LAN/blob/main/part2/3%20etherchannel%20summary%20desirable.PNG)
+
+
+*2)	In Office B, configure a Layer-2 EtherChannel named PortChannel1 between DSW-B1 and DSW-B2 using an open standard protocol. Both switches should actively try to form an EtherChannel.*
+
+Next, create the etherchannel between DSW-B1 and DSW-B2, according to the directions. Be mindful that it states to use an open standard protocol, specifically LACP. Use active mode so both switches actively try to form the EtherChannel. Once again, use <b>do show cdp neighbors</b> to see the neighboring devices and their interfaces.
+
+![getcontent](https://github.com/GSecAwareness/LAN/blob/main/part2/4%20sh%20cdp%20neighbors%20DSW-b1.PNG)
+
 The interface range is g1/0/4-5, just like before. Once the range is inputted, create Channel-group 1 again and choose active mode.
-Insert 5 channel-group 1 mode active pic
-Do the same for DSW-B2, but input “do sh etherchannel summary” to confirm the active connection. Under the Port-channel header, it reads Po1(SU), indicating Port-Channel 1 is “in use” with “layer 2.” Refer to the flag table to see the different possible flags. Our flags indicate a good connection. Under the Protocol heading, it reads LACP, showing our open standard protocol, as instructed.  
-Insert 6 etherchannel summary active pic
-4)	Configure all links between Access and Distribution switches, including the EtherChannels, as trunk links.
-a. Explicitly disable DTP on all ports.
-b. Set each trunk’s native VLAN to VLAN 1000 (unused).
-c. In Office A, allow VLANs 10, 20, 40, and 99 on all trunks.
-d. In Office B, allow VLANs 10, 20, 30, and 99 on all trunks.
 
-a. Use “nonegotiate” to disable DTP
-b. Change the native vlan to an unused vlan is a security measure to prevent vlan hopping attacks
-One DSW-A1, use “do show cdp neighbors” to find the see the neighboring devices and find the correct interface range.
-Insert 7 cdp neighbors A1 A2 A3
-ASW-A1, A2, and A3 use the interface range G1/0/1-3 and make them trunks using “switchport mode trunk” and use “nonegotiate” to disable DTP on the ports. Set the native vlan to vlan 1000. Next, set the allowed vlan range for Office A, using 10, 20, 40, and 99. Once that is complete, repeat the steps on port-channel 1 (which is not part of the interface range)
+![getcontent](https://github.com/GSecAwareness/LAN/blob/main/part2/5%20channel-group%201%20mode%20active.PNG)
 
-int range g1/0/1-3
-switchport mode trunk
-switchport negotiate
-switchport trunk native vlan 1000
-switchport trunk allowed vlan 10, 20, 40, 99
-Int po1
-switchport mode trunk
-switchport nonegotiate
-switchport trunk native vlan 1000
-switchport trunk allowed vlan 10, 20, 40, 99
+Do the same for DSW-B2, but input <b>do sh etherchannel summary</b> to confirm the active connection. Under the Port-channel header, it reads Po1(SU), indicating Port-Channel 1 is “in use” with “layer 2.” Refer to the flag table to see the different possible flags. Our flags indicate a good connection. Under the Protocol heading, it reads LACP, showing our open standard protocol, as instructed.  
+
+![getcontent](https://github.com/GSecAwareness/LAN/blob/main/part2/6%20etherchannel%20summary%20active.PNG)
+
+*3)	Configure all links between Access and Distribution switches, including the EtherChannels, as trunk links.  
+      a) Explicitly disable DTP on all ports.
+      b) Set each trunk’s native VLAN to VLAN 1000 (unused).    
+      c) In Office A, allow VLANs 10, 20, 40, and 99 on all trunks.  
+      d) In Office B, allow VLANs 10, 20, 30, and 99 on all trunks.*  
+
+a)   Use “nonegotiate” to disable DTP  
+
+b)   Change the native vlan to an unused vlan is a security measure to prevent vlan hopping attacks  
+
+On DSW-A1, use <b>do show cdp neighbors</b> to find the see the neighboring devices and find the correct interface range.
+
+![getcontent](https://github.com/GSecAwareness/LAN/blob/main/part2/7%20cdp%20neighbors%20for%20A1%20A2%20A3.PNG)  
+
+ASW-A1, A2, and A3 use the interface range G1/0/1-3 and make them trunks using <b>switchport mode trunk</b> and use <b>nonegotiate</b> to disable DTP on the ports. Set the native vlan to vlan 1000. Next, set the allowed vlan range for Office A, using 10, 20, 40, and 99. Once that is complete, repeat the steps on port-channel 1 (which is not part of the interface range)
+
+<b>int range g1/0/1-3  
+switchport mode trunk  
+switchport negotiate  
+switchport trunk native vlan 1000  
+switchport trunk allowed vlan 10, 20, 40, 99  
+Int po1  
+switchport mode trunk  
+switchport nonegotiate  
+switchport trunk native vlan 1000  
+switchport trunk allowed vlan 10, 20, 40, 99</b>  
 
 Once complete, do the same on DSW-A2
 Insert 8 noneogiate native allowed dsw1 and 2 pic
