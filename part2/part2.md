@@ -1,6 +1,6 @@
 #### In Part Two, we’ll dive deeper into the configurations, focusing on setting up VLANs and Layer 2 EtherChannel for our two office locations. This is where we really get into the core of the network and start the building process. Most of the focus will be on the distribution and access layer switches. 
 
-1)  *In Office A, configure a Layer-2 EtherChannel named PortChannel1 between DSW-A1 and DSW-A2 using a Cisco-proprietary protocol. Both switches should actively try to form an EtherChannel.*
+***Step 1***  *In Office A, configure a Layer-2 EtherChannel named PortChannel1 between DSW-A1 and DSW-A2 using a Cisco-proprietary protocol. Both switches should actively try to form an EtherChannel.*
    
 In order to figure out the correct interfaces needed for DSW-A1, use show cdp neighbors to see the devices and  their interfaces.
 
@@ -19,7 +19,7 @@ If you look under the Port-Channel header, it reads Po1(SU): Port Channel 1 with
 ![getcontent](https://github.com/GSecAwareness/LAN/blob/main/part2/3%20etherchannel%20summary%20desirable.PNG)
 
 
-*2)	In Office B, configure a Layer-2 EtherChannel named PortChannel1 between DSW-B1 and DSW-B2 using an open standard protocol. Both switches should actively try to form an EtherChannel.*
+***Step 2*** *In Office B, configure a Layer-2 EtherChannel named PortChannel1 between DSW-B1 and DSW-B2 using an open standard protocol. Both switches should actively try to form an EtherChannel.*
 
 Next, create the etherchannel between DSW-B1 and DSW-B2, according to the directions. Be mindful that it states to use an open standard protocol, specifically LACP. Use active mode so both switches actively try to form the EtherChannel. Once again, use <b>do show cdp neighbors</b> to see the neighboring devices and their interfaces.
 
@@ -33,14 +33,14 @@ Do the same for DSW-B2, but input <b>do sh etherchannel summary</b> to confirm t
 
 ![getcontent](https://github.com/GSecAwareness/LAN/blob/main/part2/6%20etherchannel%20summary%20active.PNG)
 
-*3)	Configure all links between Access and Distribution switches, including the EtherChannels, as trunk links.  
-      a) Explicitly disable DTP on all ports.
-      b) Set each trunk’s native VLAN to VLAN 1000 (unused).    
-      c) In Office A, allow VLANs 10, 20, 40, and 99 on all trunks.  
-      d) In Office B, allow VLANs 10, 20, 30, and 99 on all trunks.*  
+***Step 3.***	*Configure all links between Access and Distribution switches, including the EtherChannels, as trunk links.*  
+
+*a) Explicitly disable DTP on all ports.
+ b) Set each trunk’s native VLAN to VLAN 1000 (unused).    
+ c) In Office A, allow VLANs 10, 20, 40, and 99 on all trunks.  
+ d) In Office B, allow VLANs 10, 20, 30, and 99 on all trunks.*  
 
 a)   Use “nonegotiate” to disable DTP  
-
 b)   Change the native vlan to an unused vlan is a security measure to prevent vlan hopping attacks  
 
 On DSW-A1, use <b>do show cdp neighbors</b> to find the see the neighboring devices and find the correct interface range.
@@ -77,9 +77,10 @@ Next, configure the access switches in the same way. Be mindful that these switc
 
 ![getcontent](https://github.com/GSecAwareness/LAN/blob/main/part2/11%20ASW-B3%20config.PNG)
 
-*4)	Configure one of each office’s Distribution switches as a VTPv2 server. Use domain name JeremysITLab.
-a. Verify that other switches join the domain.
-b. Configure all Access switches as VTP clients.*
+***Step 4.***	*Configure one of each office’s Distribution switches as a VTPv2 server. Use domain name JeremysITLab.*  
+
+*a. Verify that other switches join the domain.  
+b. Configure all Access switches as VTP clients.*  
 
 First, check the VTP status and pay attention to the VTP Domain Name, like the instructions state. There is no domain name, so this will need to be changed and we should configure version 2 of VTP as well. 
 
@@ -94,8 +95,9 @@ VTP advertisements are only sent out of trunk ports and the links between the di
 ![getcontent](https://github.com/GSecAwareness/LAN/blob/main/part2/14%20VTP%20status%20ASW-B3.PNG)
 
 
-*5)   In Office A, create and name the following VLANs on one of the Distribution switches. Ensure that VTP propagates the changes.  
-a. VLAN 10: PCs  
+***Step 5.*** *In Office A, create and name the following VLANs on one of the Distribution switches. Ensure that VTP propagates the changes.*    
+
+*a. VLAN 10: PCs   
 b. VLAN 20: Phones  
 c. VLAN 40: Wi-Fi  
 d. VLAN 99: Management*  
@@ -104,9 +106,10 @@ Because VTP is already configured on DSW-A1, the configurations should propagate
 
 ![getcontent](https://github.com/GSecAwareness/LAN/blob/main/part2/15%20VLAN%20naming%20Office%20A.PNG) 
 
-*6)	In Office B, create and name the following VLANs on one of the Distribution switches. Ensure that VTP propagates the changes.  
-a. VLAN 10: PCs  
-b. VLAN 20: Phones  
+***Step 6*** *In Office B, create and name the following VLANs on one of the Distribution switches. Ensure that VTP propagates the changes.*    
+
+*a. VLAN 10: PCs  
+b. VLAN 20: Phones    
 c. VLAN 30: Servers  
 d. VLAN 99: Management*  
 
@@ -114,8 +117,9 @@ Using the same commands, enter the configurations into DSW-B1 and it will propag
 
 ![getcontent](https://github.com/GSecAwareness/LAN/blob/main/part2/16%20VLAN%20naming%20Office%20B.PNG)
 
-*7)	Configure each Access switch’s access port.  
-a. LWAPs will not use FlexConnect  
+***Step 7*** *Configure each Access switch’s access port.*    
+
+*a. LWAPs will not use FlexConnect  
 b. PCs in VLAN 10, Phones in VLAN 20  
 c. SRV1 in VLAN 30  
 d. Manually configure access mode and explicitly disable DTP*  
@@ -144,8 +148,9 @@ Repeat this process for ASW-B3, changing the vlan configuration to vlan 30 for t
 
 ![getcontent](https://github.com/GSecAwareness/LAN/blob/main/part2/19%20access%20port%20ASW-B3.PNG)
 
-*8)	Configure ASW-A1’s connection to WLC1.  
-a. It must support the Wi-Fi and Management VLANs.  
+***Step 8.*** *Configure ASW-A1’s connection to WLC1.*    
+
+*a. It must support the Wi-Fi and Management VLANs.  
 b. The Management VLAN should be untagged.  
 c. Disable DTP.*  
 
@@ -153,7 +158,7 @@ Configure it as a trunk port that allows both Management VLAN and Wi-Fi VLAN wit
 
 ![getcontent](https://github.com/GSecAwareness/LAN/blob/main/part2/20%20ASW-A1%20trunk%20to%20WLC1.PNG)
 
-*9)	Administratively disable all unused ports on Access and Distribution switches.*  
+***Step 9*** *Administratively disable all unused ports on Access and Distribution switches.*  
 
 Look at DSW-A1 to determine which ports to disable. Use <b>do show int status</B> In the CLI output under the Status header, the ports labeled “notconnect” should be disabled for security. Disable them all at once using the int range command. The range should be g1/0/6 -24 and g1/1/3-4. The output should look like this. Copy and paste the commands into the other distribution switches. Before writing the configuration to memory, be sure to verify the work using “do sh int status.” 
 
