@@ -1,1 +1,2 @@
-
+#### In this section, we’ll configure Open Shortest Path First (OSPF), an interior gateway protol (IGP) used in networks to find the most efficient path between nodes. By sharing routing information though a link-state protocol, OSPF creates and updates a dynamic map of the network with neighboring routers. This allows all devices to determine the best path to forward traffic. 
+***Part 1*** *Configure OSPF on R1 (LAN-facing interfaces) and all Core and Distribution switches (all Layer-3 interfaces).*  
