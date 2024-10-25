@@ -1,4 +1,15 @@
-#### In Part Two, we’ll dive deeper into the configurations, focusing on setting up VLANs and Layer 2 EtherChannel for our two office locations. This is where we really get into the core of the network and start the building process. Most of the focus will be on the distribution and access layer switches. 
+### Table of Contents
+
+ <b>Building 3-Tier LAN in Packet Tracer</b>  
+  - [Introduction and Initial Setup](https://github.com/GSecAwareness/LAN/blob/main/README.md)  
+  - [VLANs and Layer 2 EtherChannel](https://github.com/GSecAwareness/LAN/blob/main/part2/part2.md)
+  - [IP Addressing, Layer-3 EtherChannel, and Hot Standby Router Protocol (HSRP)](https://github.com/GSecAwareness/LAN/blob/main/part3/part3.md)
+  - [Rapid Spanning-Tree Protocol (RSTP)](https://github.com/GSecAwareness/LAN/blob/main/part4/part4.md)  
+  - [Static and Dynamic Routing (OSPF)](https://github.com/GSecAwareness/LAN/blob/main/part5/part5.md) 
+
+---
+
+### In Part Two, we’ll dive deeper into the configurations, focusing on setting up VLANs and Layer 2 EtherChannel for our two office locations. This is where we really get into the core of the network and start the building process. Most of the focus will be on the distribution and access layer switches. 
 
 ***Step 1***  *In Office A, configure a Layer-2 EtherChannel named PortChannel1 between DSW-A1 and DSW-A2 using a Cisco-proprietary protocol. Both switches should actively try to form an EtherChannel.*
    
