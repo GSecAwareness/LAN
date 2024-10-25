@@ -1,6 +1,20 @@
+#### Introduction
+
 #### While preparing for my CCNA, I found Jeremy’s IT Lab YouTube videos incredibly helpful for the visual and interactive parts of my learning. His labs, designed for Packet Tracer, allowed students to build their skills in a network simulation program. In mid-2024, he introduced a MegaLab that brought together all the key concepts. About a week before my certification exam, I completed the lab to sharpen my CLI programming skills. I decided to revisit the lab for additional practice, this time recording my progress and sharing some insights along the way. This tutorial is part of my Office LAN project, and I’m excited to share it with you!
 #### If you want to do the lab for yourself, click [here](https://www.youtube.com/watch?v=2p7-MluKAgE)
 #### To get the neccessary files needed to complete the lab, click on the provided link. You will also need to install Packet Tracer. 
+
+
+#### Table of Contents
+
+- <b>Building 3-Tier LAN in Packet Tracer</b>  
+  - [Introduction and Initial Setup](https://github.com/GSecAwareness/LAN/blob/main/README.md)  
+  - [VLANs and Layer 2 EtherChannel](https://github.com/GSecAwareness/LAN/blob/main/part2/part2.md)
+  - [IP Addressing, Layer-3 EtherChannel, and Hot Standby Router Protocol (HSRP)](https://github.com/GSecAwareness/LAN/blob/main/part3/part3.md)
+  - [Rapid Spanning-Tree Protocol (RSTP)](https://github.com/GSecAwareness/LAN/blob/main/part4/part4.md)  
+  - [Static and Dynamic Routing (OSPF)](https://github.com/GSecAwareness/LAN/blob/main/part5/part5.md) 
+
+
 
 
 #### Part One is the initial setup of the devices and naming configuration.  
