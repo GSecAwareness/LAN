@@ -1,3 +1,7 @@
+# Building A 3-Tier LAN 
+
+## Network Services: DHCP, DNS, NTP, SNMP, Syslog, FTP, SSH, NAT  
+
 ### Table of Contents
 
  <b>Building 3-Tier LAN in Packet Tracer</b>  
