@@ -1,3 +1,5 @@
+## VLANs and Layer 2 EtherChannel
+
 ### Table of Contents
 
  <b>Building 3-Tier LAN in Packet Tracer</b>  
