@@ -1,5 +1,3 @@
-# Building A 3-Tier LAN 
-
 ## Network Services: DHCP, DNS, NTP, SNMP, Syslog, FTP, SSH, NAT  
 
 ### Table of Contents
