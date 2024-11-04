@@ -6,7 +6,7 @@
   - [IP Addressing, Layer-3 EtherChannel, and Hot Standby Router Protocol (HSRP)](https://github.com/GSecAwareness/LAN/blob/main/part3/part3.md)
   - [Rapid Spanning-Tree Protocol (RSTP)](https://github.com/GSecAwareness/LAN/blob/main/part4/part4.md)  
   - [Static and Dynamic Routing (OSPF)](https://github.com/GSecAwareness/LAN/blob/main/part5/part5.md) 
-
+  - [Network Services: DHCP, DNS, NTP, SNMP, Syslog, FTP, SSH, NAT](https://github.com/GSecAwareness/LAN/edit/main/part6/part6.md)
 ---
 
 ### In Part Two, we’ll dive deeper into the configurations, focusing on setting up VLANs and Layer 2 EtherChannel for our two office locations. This is where we really get into the core of the network and start the building process. Most of the focus will be on the distribution and access layer switches. 
