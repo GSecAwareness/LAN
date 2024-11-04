@@ -6,7 +6,7 @@
   - [IP Addressing, Layer-3 EtherChannel, and Hot Standby Router Protocol (HSRP)](https://github.com/GSecAwareness/LAN/blob/main/part3/part3.md)
   - [Rapid Spanning-Tree Protocol (RSTP)](https://github.com/GSecAwareness/LAN/blob/main/part4/part4.md)  
   - [Static and Dynamic Routing (OSPF)](https://github.com/GSecAwareness/LAN/blob/main/part5/part5.md) 
-
+  - [Network Services: DHCP, DNS, NTP, SNMP, Syslog, FTP, SSH, NAT](https://github.com/GSecAwareness/LAN/edit/main/part6/part6.md)
 ---
 
 #### In Part Three, we’ll configure IP addresses, Layer-3 EtherChannel, and Hot Standby Router Protocol (HSRP). HSRP, a Cisco proprietary redundancy protocol, ensures automatic router failover to maintain high availability and prevent network outages. It assigns a virtual IP address to the router with the highest priority, making it the active router. If the active router goes offline, the next highest-priority router takes over. With a feature called preemption, we can configure the highest-priority router to automatically regain its active role once it’s back online. In this section, we’ll enable preemption to optimize our HSRP setup.
