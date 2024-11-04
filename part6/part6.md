@@ -14,7 +14,7 @@
 #### In this section, we’ll configure key networking services to manage and secure network operations. DHCP will automatically assign IP addresses to devices, simplifying network management. DNS will resolve domain names to IP addresses, enabling easy access to resources by name. NTP will synchronize device clocks, ensuring consistent timekeeping across the network. SNMP will monitor device performance and alert administrators to potential issues. Syslog will centralize logs, helping with monitoring and troubleshooting. FTP will enable secure file transfers, and SSH will allow encrypted remote management of devices. Finally, NAT will map private IP addresses to a public one, securing and optimizing internet access. This will be a big section, so lets dive in. 
 
 ***Step 1*** *Configure the following DHCP pools on R1 to make it serve as the DHCP server for hosts in Offices A and B. Exclude the first ten usable host addresses of each pool; they must not be leased to DHCP clients.*  
-a. Pool: A-Mgmt  
+*a. Pool: A-Mgmt  
    i. Subnet: 10.0.0.0/28  
    ii. Default gateway: 10.0.0.1  
    iii. Domain name: jeremysitlab.com  
@@ -50,7 +50,7 @@ g. Pool: Wi-Fi
    i. Subnet: 10.6.0.0/24  
    ii. Default gateway: 10.6.0.1  
    iii. Domain name: jeremysitlab.com  
-   iv. DNS server: 10.5.0.4 (SRV1)  
+   iv. DNS server: 10.5.0.4 (SRV1)*    
 
 Go into the CLI of R1 and enter the excluded addresses first. Next, configure the dhcp pool A-Mgmt and set the pool range based on the instructions 10.0.0.0/28. Set the default router as 10.0.0.1 and the domain name as jeremysitlab.com. Configure the DNS server 10.5.0.4 and the WLC address for lightweight access points. To specify a WLC address, use the option keyword, using option code 43 and then enter the ip address.   
 Option 43 is commonly used in wireless networks where Lightweight Access Points (LAP) require the IP address of a Wireless LAN Controller (WLC). With option 43, the DHCP server can pass controller information to access points.  
