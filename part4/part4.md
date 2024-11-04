@@ -6,7 +6,7 @@
   - [IP Addressing, Layer-3 EtherChannel, and Hot Standby Router Protocol (HSRP)](https://github.com/GSecAwareness/LAN/blob/main/part3/part3.md)
   - [Rapid Spanning-Tree Protocol (RSTP)](https://github.com/GSecAwareness/LAN/blob/main/part4/part4.md)  
   - [Static and Dynamic Routing (OSPF)](https://github.com/GSecAwareness/LAN/blob/main/part5/part5.md) 
-
+  - [Network Services: DHCP, DNS, NTP, SNMP, Syslog, FTP, SSH, NAT](https://github.com/GSecAwareness/LAN/edit/main/part6/part6.md)
 ---
 #### In Part 4, we’ll configure Rapid Spanning Tree Protocol (RSTP) on our distribution and access switches. RSTP is an enhanced version of Spanning Tree Protocol (STP), designed to prevent network loops while significantly improving convergence time, allowing the network to react more quickly to changes. Although RSTP retains the same port roles as STP, it introduces three streamlined port states: Discarding, which combines STP's Blocking and Listening states; Learning, where MAC addresses are learned but traffic is not yet forwarded; and Forwarding, where traffic is actively forwarded and the port is fully operational. We’ll also enable two key features, PortFast and BPDU Guard, on our end-host ports, which will be explained in more detail later.
 
