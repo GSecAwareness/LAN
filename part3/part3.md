@@ -1,3 +1,5 @@
+## IP Addressing, Layer-3 EtherChannel, and Hot Standby Router Protocol (HSRP)
+
 ### Table of Contents
 
  <b>Building 3-Tier LAN in Packet Tracer</b>  
